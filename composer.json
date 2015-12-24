@@ -1,0 +1,17 @@
+{
+    "name": "milax/cacheable",
+	"license": "ISC",
+	"description" : "Laravel Model trait for caching all db objects",
+    "authors": [
+        {
+            "name": "Eugene Min",
+            "email": "e.min@milax.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Milax\\": "src/"
+        }
+    },
+    "require": {}
+}
