@@ -17,9 +17,9 @@ trait Cacheable
 	 * @static
 	 * @return Collection
 	 */
-	public static function getCached()
+	public static function getCached($name = null)
 	{
-		self::initialize();
+		self::initialize($name);
 		
 		if (!Cache::has(self::$cacheName))
 			self::updateCache();
@@ -34,9 +34,9 @@ trait Cacheable
 	 * @static
 	 * @return bool
 	 */
-	public static function updateCache()
+	public static function updateCache($name = null)
 	{
-		self::initialize();
+		self::initialize($name);
 		Cache::forever(self::$cacheName, static::all());
 		return true;
 	}
@@ -48,9 +48,9 @@ trait Cacheable
 	 * @static
 	 * @return bool
 	 */
-	public static function dropCache()
+	public static function dropCache($name = null)
 	{
-		self::initialize();
+		self::initialize($name);
 		Cache::forget(self::$cacheName);
 		return true;
 	}
@@ -62,9 +62,12 @@ trait Cacheable
 	 * @static
 	 * @return void
 	 */
-	protected static function initialize()
+	protected static function initialize($name = null)
 	{
-		self::$cacheName = static::class . self::$suffix;
+		if (!is_null($name))
+			self::$cacheName = static::class . $name;
+		else
+			self::$cacheName = static::class . self::$suffix;
 	}
 	
 }
