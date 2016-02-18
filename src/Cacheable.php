@@ -10,6 +10,11 @@ trait Cacheable
 	protected static $suffix = '_all';
 	protected static $cacheName;
 	
+	public function __construct()
+	{
+		static::observeEvents();
+	}
+	
 	/**
 	 * Get all cached items of given Eloquent Model.
 	 * 
@@ -68,6 +73,20 @@ trait Cacheable
 			self::$cacheName = static::class . $name;
 		else
 			self::$cacheName = static::class . self::$suffix;
+	}
+	
+	/**
+	 * Observe model events.
+	 * 
+	 * @access protected
+	 * @static
+	 * @return void
+	 */
+	protected static function observeEvents()
+	{
+		static::saved(function ($item) {
+			static::updateCache();
+		});
 	}
 	
 }
