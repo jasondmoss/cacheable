@@ -10,8 +10,9 @@ trait Cacheable
 	protected static $suffix = '_all';
 	protected static $cacheName;
 	
-	public function __construct()
+	public function __construct(array $attributes = [])
 	{
+		parent::__construct($attributes);
 		static::observeEvents();
 	}
 	
