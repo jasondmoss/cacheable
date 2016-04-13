@@ -3,6 +3,7 @@
 namespace Milax;
 
 use Cache;
+use Schema;
 
 trait Cacheable
 {
