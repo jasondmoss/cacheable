@@ -1,5 +1,5 @@
 {
-    "name": "milax/cacheable",
+    "name": "misterpaladin/cacheable",
 	"license": "ISC",
 	"description" : "Laravel Model trait for caching all db objects",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Milax\\": "src/"
+            "MisterPaladin\\": "src/"
         }
     },
     "require": {}

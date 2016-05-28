@@ -1,6 +1,6 @@
 <?php
 
-namespace Milax;
+namespace MisterPaladin;
 
 use Cache;
 use Schema;
