@@ -1,6 +1,6 @@
 {
     "name": "misterpaladin/cacheable",
-	"license": "ISC",
+	"license": "MIT",
 	"description" : "Laravel Model trait for caching all db objects",
     "authors": [
         {
